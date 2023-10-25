@@ -1,0 +1,22 @@
+- name: Name "{{ a }}"
+  when: _var is false
+  command: sh {{ _var2 }}
+- name: Block task
+  block:
+    - name: First task in block
+      when:
+        - something is true
+        - somethingelse is not true
+      shell: something
+    - debug:
+        msg: sdfdsf sdf dsfsf ssdf {{ var }}
+      vars:
+        var: "This is a var {{ b }}"
+    - set_fact:
+        var3: "sdfsdfsdf"
+    - shell: >-
+        whatever xd
+        whatever else
+      environment:
+        RC_SOMETHING: idk
+        GIT_USER: x634305
